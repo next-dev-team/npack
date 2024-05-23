@@ -35,7 +35,7 @@ jobs:
           fi
 
       - name: Manual Review and Upload (Recommended)
-        uses: actions/hub-release@v2
+        uses: peter-evans/hub-release@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: false
