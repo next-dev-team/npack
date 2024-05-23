@@ -50,11 +50,11 @@
     "dbaeumer.vscode-eslint"
   ],
   "repository": {
-    "url": "https://github.com/SeyyedKhandon/npack.git"
+    "url": "https://github.com/next-dev-team/npack.git"
   },
-  "homepage": "https://github.com/SeyyedKhandon/npack.git",
+  "homepage": "https://github.com/next-dev-team/npack.git",
   "bugs": {
-    "url": "https://github.com/SeyyedKhandon/npack.git/issues"
+    "url": "https://github.com/next-dev-team/npack.git/issues"
   },
   "keywords": [
     "Theme Extension Pack",
