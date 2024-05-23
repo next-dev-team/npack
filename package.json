@@ -1,0 +1,93 @@
+{
+  "name": "npack",
+  "version": "0.0.1",
+  "publisher": "Sila Rim",
+  "author": "Sila Rim",
+  "displayName": "NextDev Pack",
+  "description": "Theme Essentials Extension Pack(One Dark Pro, Material Icon, FiraCode font) for Visual Studio Code",
+  "license": "MIT",
+  "galleryBanner": {
+    "color": "#47B784",
+    "theme": "dark"
+  },
+  "icon": "assets/npack.jpg",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "npack.activate",
+        "title": "Activate NextDev Pack Config"
+      },
+      {
+        "command": "npack.deactivate",
+        "title": "Deactivate NextDev Pack Config"
+      },
+      {
+        "command": "npack.reset",
+        "title": "Reset NextDev Pack Config"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "extensionPack": [
+    "bradlc.vscode-tailwindcss",
+    "zhuangtongfa.material-theme",
+    "PKief.material-product-icons",
+    "pkief.material-icon-theme",
+    "SeyyedKhandon.firacode",
+    "Codeium.codeium",
+    "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint"
+  ],
+  "repository": {
+    "url": "https://github.com/SeyyedKhandon/npack.git"
+  },
+  "homepage": "https://github.com/SeyyedKhandon/npack.git",
+  "bugs": {
+    "url": "https://github.com/SeyyedKhandon/npack.git/issues"
+  },
+  "keywords": [
+    "Theme Extension Pack",
+    "One Dark Pro",
+    "Material Icon Pack",
+    "Fira Code font",
+    "Professional font",
+    "web",
+    "developer experience"
+  ],
+  "categories": [
+    "Extension Packs"
+  ],
+  "engines": {
+    "vscode": "^1.22.0"
+  },
+  "devDependencies": {
+    "@types/follow-redirects": "^1.14.4",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.12.12",
+    "@types/vscode": "^1.89.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^9.3.0",
+    "follow-redirects": "^1.15.6",
+    "fs": "^0.0.1-security",
+    "glob": "^10.3.16",
+    "inly": "^5.0.1",
+    "mocha": "^10.4.0",
+    "path": "^0.12.7",
+    "typescript": "^5.4.5",
+    "vscode-test": "^1.5.0"
+  },
+  "dependencies": {}
+}
