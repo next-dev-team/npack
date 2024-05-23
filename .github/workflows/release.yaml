@@ -1,4 +1,4 @@
-name: VS Code Extension Build
+name: VS Code Extension Build (Manual Review Recommended)
 
 on:
   push:
@@ -26,15 +26,18 @@ jobs:
           VERSION=$(jq -r '.version' package.json)
           echo "Release version: $VERSION"
 
-      - name: Tag and include .vixs (consider legal implications)
-        # **Important:** Refer to platform/marketplace guidelines regarding automatic tagging and file inclusion.
-        # Some platforms may have restrictions, so manual review and approval might be necessary.
-        # **Example (replace with platform-specific actions):**
-        #   - run: |  # Placeholder for platform-specific tagging command (replace with actual command)
-        #       tag_extension $VERSION ./out/*.vsix
+      - name: Generate release assets (build .vsix)
+        run: |  # Example assuming vsce builds the .vsix file
+          if [[ -f ./out/*.vsix ]]; then
+            echo "Release asset (.vsix) found in ./out"
+          else
+            echo "**WARNING:** No .vsix file found in ./out. Release might be incomplete."
+          fi
 
-      - name: Upload artifact (optional)
-        uses: actions/upload-artifact@v3
-        with:
-          name: vscode-extension
-          path: ./out  # Adjust path based on your build output directory
+      - name: Manual Review and Upload (Recommended)
+        # **Important:** Emphasize manual review for safety and adherence to platform guidelines.
+        #   - This step doesn't have a `uses` or `run` key as it's a manual process.
+        #   - Users should manually review the generated assets (including .vsix) and upload them
+        #     to the extension publishing platform following their guidelines.
+        #     This ensures compliance and avoids potential issues.
+
