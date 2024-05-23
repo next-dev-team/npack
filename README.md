@@ -1,10 +1,7 @@
-<a href="https://marketplace.visualstudio.com/items?itemName=SeyyedKhandon.npack">
-  <img style="margin:auto;" src="./assets/npack.jpg" width="200px" />
-</a>
 
 # NextDev Pack - Theme, font and useful Extension 
 
-#### VSCode `Icon`/`Theme`/`Font` pack. See [One-Click Setup](#pre-defined-settings-which-you-maybe-want-to-use)
+#### VSCode `Icon`/`Theme`/`Font` pack
 
 <img src="./assets/vscode-example.jpg" width="800">
 
@@ -48,17 +45,13 @@ When the **Font Directory** appears, install fonts if you haven't already, and r
 
 - 3- [FiraCode Font](https://marketplace.visualstudio.com/items?itemName=SeyyedKhandon.firacode) - Professional Font for Developers
 
-## Recommended Extension pack
 
-<a href="https://marketplace.visualstudio.com/items?itemName=SeyyedKhandon.zpack">
-  <img style="margin:auto;" src="./assets/zpack.jpg" alt="zpack" width="200px" />
-</a>
+## One Click Install 
 
-[ZPack](https://marketplace.visualstudio.com/items?itemName=SeyyedKhandon.zpack) is An Opinionated collection of the `best` and `most` used extensions for Web Developers in VSCode which has Better `Developer Experience(DX)` and `load time` in Mind.
+Go to left side menu click on extention then click install from VSIX from [HERE](https://github.com/next-dev-team/npack/releases)
 
-## Credit Links
+<img src="./assets/install.png" width="400" />
 
+## Inspire from tpack
 - [Github](https://github.com/SeyyedKhandon/tpack)
-- [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=SeyyedKhandon.tpack)
 
-**Enjoy!**

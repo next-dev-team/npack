@@ -1,0 +1,27 @@
+name: VS Code Extension Build
+
+on:
+  push:
+    branches: [ main ]  # Adjust based on your trigger branch(es)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Adjust OS as needed
+    steps:
+      - uses: actions/checkout@v3  # Checkout code from repository
+      - name: Use Node.js 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16  # Adjust Node.js version if required
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build extension
+        run: npm run build  # Replace with your build command
+
+      - name: Upload artifact (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: vscode-extension
+          path: ./out  # Adjust path based on your build output directory

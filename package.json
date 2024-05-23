@@ -1,6 +1,6 @@
 {
   "name": "npack",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "silarim",
   "author": "Sila Rim",
   "displayName": "NextDev Pack",
@@ -32,16 +32,18 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "yarn run compile",
-    "vsce": "npm run vscode:prepublish && vsce package",
+    "vscode:prepublish": "npm run compile",
+    "vsce": "vsce package",
     "vsce:publish": "vsce publish",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "yarn run compile && yarn run lint",
+    "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
   "extensionPack": [
+    "esbenp.prettier-vscode",
+    "ms-vscode.sublime-keybindings",
     "bradlc.vscode-tailwindcss",
     "zhuangtongfa.material-theme",
     "PKief.material-product-icons",
