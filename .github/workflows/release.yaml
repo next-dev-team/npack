@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest  # Adjust OS as needed
     steps:
       - uses: actions/checkout@v3  # Checkout code from repository
+
       - name: Use Node.js 16
         uses: actions/setup-node@v3
         with:
@@ -18,7 +19,19 @@ jobs:
         run: npm install
 
       - name: Build extension
-        run: npm run vsce 
+        run: npm run vsce  # Assuming vsce script builds the extension
+
+      - name: Extract release information (optional)
+        run: |  # Example for extracting version from package.json
+          VERSION=$(jq -r '.version' package.json)
+          echo "Release version: $VERSION"
+
+      - name: Tag and include .vixs (consider legal implications)
+        # **Important:** Refer to platform/marketplace guidelines regarding automatic tagging and file inclusion.
+        # Some platforms may have restrictions, so manual review and approval might be necessary.
+        # **Example (replace with platform-specific actions):**
+        #   - run: |  # Placeholder for platform-specific tagging command (replace with actual command)
+        #       tag_extension $VERSION ./out/*.vsix
 
       - name: Upload artifact (optional)
         uses: actions/upload-artifact@v3
