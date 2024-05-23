@@ -35,9 +35,9 @@ jobs:
           fi
 
       - name: Manual Review and Upload (Recommended)
-        # **Important:** Emphasize manual review for safety and adherence to platform guidelines.
-        #   - This step doesn't have a `uses` or `run` key as it's a manual process.
-        #   - Users should manually review the generated assets (including .vsix) and upload them
-        #     to the extension publishing platform following their guidelines.
-        #     This ensures compliance and avoids potential issues.
+        uses: actions/hub-release@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: false
+          prerelease: false
 
