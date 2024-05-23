@@ -1,7 +1,7 @@
 {
   "name": "npack",
   "version": "0.0.1",
-  "publisher": "Sila Rim",
+  "publisher": "silarim",
   "author": "Sila Rim",
   "displayName": "NextDev Pack",
   "description": "Theme Essentials Extension Pack(One Dark Pro, Material Icon, FiraCode font) for Visual Studio Code",
@@ -33,6 +33,8 @@
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",
+    "vsce": "npm run vscode:prepublish && vsce package",
+    "vsce:publish": "vsce publish",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
@@ -69,7 +71,7 @@
     "Extension Packs"
   ],
   "engines": {
-    "vscode": "^1.22.0"
+    "vscode": "^1.89.0"
   },
   "devDependencies": {
     "@types/follow-redirects": "^1.14.4",
