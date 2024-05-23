@@ -76,6 +76,7 @@
     "vscode": "^1.89.0"
   },
   "devDependencies": {
+    "vsce": "^2.15.0",
     "@types/follow-redirects": "^1.14.4",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.6",
