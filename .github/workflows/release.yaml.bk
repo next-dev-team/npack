@@ -35,9 +35,19 @@ jobs:
           fi
 
       - name: Manual Review and Upload (Recommended)
-        uses: peter-evans/hub-release@v1
+        uses: sonatype/oss-release@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
         with:
+          username: ${{ secrets.SONATYPE_USERNAME }}
+          password: ${{ secrets.SONATYPE_PASSWORD }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          draft: false
-          prerelease: false
+          repositoryUrl: https://oss.sonatype.org/service/local/staging/deploy/maven2
+          snapshotRepositoryUrl: https://oss.sonatype.org/content/repositories/snapshots
+          releaseType: release
+          gprCommentAnchors:
+            - "This is a [skip ci build]"
+          skipSigning: false
 
