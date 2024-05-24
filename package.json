@@ -1,6 +1,6 @@
 {
   "name": "npack",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "silarim",
   "author": "Sila Rim",
   "displayName": "NextDev Pack",
@@ -54,7 +54,9 @@
     "dbaeumer.vscode-eslint",
     "streetsidesoftware.code-spell-checker",
     "Lokalise.i18n-ally",
-    "foxundermoon.shell-format"
+    "foxundermoon.shell-format",
+    "christian-kohler.path-intellisense",
+    "eamodio.gitlens"
   ],
   "repository": {
     "url": "https://github.com/next-dev-team/npack.git"

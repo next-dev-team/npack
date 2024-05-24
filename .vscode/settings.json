@@ -75,5 +75,8 @@
     "i18n-ally.extract.autoDetect": true,
     "i18n-ally.localesPaths": [
         "packages/i18n"
-    ]
+    ],
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
