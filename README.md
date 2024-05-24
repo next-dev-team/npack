@@ -62,6 +62,7 @@ When the **Font Directory** appears, install fonts if you haven't already, and r
 - 13- [I18n Ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally) - Internationalization support
 - 14- [Shell Format](https://marketplace.visualstudio.com/items?itemName=foxundermoon.shell-format) - Format shell scripts
 - 15- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) - Autocomplete filenames
+- 16- [Genlen](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) Supercharge Git within VS Code
 
 ## One Click Install
 
