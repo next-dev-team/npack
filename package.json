@@ -1,6 +1,6 @@
 {
   "name": "npack",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "silarim",
   "author": "Sila Rim",
   "displayName": "NextDev Pack",
@@ -64,7 +64,9 @@
     "zachhardesty.convert-object-to-jsx-vscode",
     "GregorBiswanger.json2ts",
     "amih90.to",
-    "DavidAnson.vscode-markdownlint"
+    "DavidAnson.vscode-markdownlint",
+    "aaron-bond.better-comments",
+    "mikestead.dotenv"
     
   ],
   "repository": {

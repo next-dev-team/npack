@@ -1,6 +1,6 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "vs-seti",
+    "workbench.colorTheme": "Default Dark Modern",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.inlineSuggest.enabled": true,
     "editor.fontFamily": "'fira code'",
