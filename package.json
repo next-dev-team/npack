@@ -56,7 +56,16 @@
     "Lokalise.i18n-ally",
     "foxundermoon.shell-format",
     "christian-kohler.path-intellisense",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "antfu.goto-alias",
+    "mrluges.vscode-goto-node-modules",
+    "steoates.autoimport",
+    "litiany4.umijs-plugin-model",
+    "zachhardesty.convert-object-to-jsx-vscode",
+    "GregorBiswanger.json2ts",
+    "amih90.to",
+    "DavidAnson.vscode-markdownlint"
+    
   ],
   "repository": {
     "url": "https://github.com/next-dev-team/npack.git"
