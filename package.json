@@ -67,7 +67,6 @@
     "DavidAnson.vscode-markdownlint",
     "aaron-bond.better-comments",
     "mikestead.dotenv"
-    
   ],
   "repository": {
     "url": "https://github.com/next-dev-team/npack.git"
@@ -92,7 +91,7 @@
     "vscode": "^1.89.0"
   },
   "devDependencies": {
-    "vsce": "^2.15.0",
+    "@vscode/vsce": "^2.26.1",
     "@types/follow-redirects": "^1.14.4",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.6",
