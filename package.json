@@ -1,6 +1,6 @@
 {
   "name": "npack",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "silarim",
   "author": "Sila Rim",
   "displayName": "NextDev Pack",
@@ -66,7 +66,8 @@
     "amih90.to",
     "DavidAnson.vscode-markdownlint",
     "aaron-bond.better-comments",
-    "mikestead.dotenv"
+    "mikestead.dotenv",
+    "christian-kohler.npm-intellisense"
   ],
   "repository": {
     "url": "https://github.com/next-dev-team/npack.git"
