@@ -67,7 +67,8 @@
     "DavidAnson.vscode-markdownlint",
     "aaron-bond.better-comments",
     "mikestead.dotenv",
-    "christian-kohler.npm-intellisense"
+    "christian-kohler.npm-intellisense",
+    "naumovs.color-highlight"
   ],
   "repository": {
     "url": "https://github.com/next-dev-team/npack.git"
