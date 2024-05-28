@@ -13,49 +13,29 @@
     },
     // @see https://github.com/paolotiu/tailwind-intellisense-regex-list?tab=readme-ov-file
     "tailwindCSS.experimental.classRegex": [
+        // obj with prefix cls, Styles const sizesCls ={ sm: 'text-sm'}
         [
-            "tw\\(([^)]*)\\)",
-            "[\"'`]([^\"'`]*).*?[\"'`]"
+            "Styles|Cls\\s*(?::\\s*[^=]+)?\\s*=\\s*([^;]*);",
+            "['\"`]([^'\"`]*)['\"`]"
         ],
+        // JavaScript string variable   const css = `bg-red-300 ${a}`; or const css = "bg-red-300"
         [
-            "tw1\\(([^)]*)\\)",
-            "[\"'`]([^\"'`]*).*?[\"'`]"
+            "(?:\\b(?:const|let)\\s+)?[\\w$_]*(?:[Ss]tyles|[Cc]lasses|[Cc]lassnames|[Cc]ls|[Cc]lx|[Cc]lass|[Cc]ss)[\\w\\d]*\\s*(?:=|\\+=)\\s*['`\"]([^'\"]*)['`\"]"
         ],
+        // fn
         [
-            "tw2\\(([^)]*)\\)",
-            "[\"'`]([^\"'`]*).*?[\"'`]"
+            "(?:tw|cn)\\(([^)]*)\\)",
+            "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"
         ],
+        // dom
         [
-            "tw3\\(([^)]*)\\)",
-            "[\"'`]([^\"'`]*).*?[\"'`]"
+            "classList.(?:add|remove)\\(([^)]*)\\)",
+            "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"
         ],
+        // data class
         [
-            "tw=[\"'`]([^\"'`]*)"
-        ],
-        [
-            "Cls=[\"'`]([^\"'`]*)"
-        ],
-        [
-            "Clx=[\"'`]([^\"'`]*)"
-        ],
-        [
-            "className:.[\"'`]([^\"'`]*)"
-        ],
-        [
-            "className:[\"'`]([^\"'`]*)"
-        ],
-        [
-            "className:.clx\\(([^)]*)\\)",
-            "[\"'`]([^\"'`]*).*?[\"'`]"
-        ],
-        "tw`([^`]*)",
-        "tw\\.style\\(`([^)]*)`\\)",
-        "tw\\.style\\(`([^)]*)\\)",
-        "twColor\\(`([^)]*)`\\)",
-        // any obj 
-        // ":\\s*?[\"'`]([^\"'`]*).*?,",
-        // ":\\s*?[\"'`]([^\"'`]*).*?,",
-        // ":(?:.|\n)*?[\"'`]([^\"'`]*).*?,"
+            "data-.*-class=['\"]([^'\"]*)"
+        ]
     ],
     "cSpell.words": [
         "nocheck",
