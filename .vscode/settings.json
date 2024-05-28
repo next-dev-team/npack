@@ -11,6 +11,7 @@
         "source.fixAll.eslint": "always",
         "source.fixAll": "always"
     },
+    // @see https://github.com/paolotiu/tailwind-intellisense-regex-list?tab=readme-ov-file
     "tailwindCSS.experimental.classRegex": [
         [
             "tw\\(([^)]*)\\)",
