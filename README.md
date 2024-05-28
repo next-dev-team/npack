@@ -39,7 +39,24 @@ When the **Font Directory** appears, install fonts if you haven't already, and r
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always",
     "source.fixAll": "always"
-  }
+  },
+  "tailwindCSS.experimental.classRegex": [
+    // obj with prefix cls, Styles const sizesCls ={ sm: 'text-sm'}
+    [
+      "Styles|Cls\\s*(?::\\s*[^=]+)?\\s*=\\s*([^;]*);",
+      "['\"`]([^'\"`]*)['\"`]"
+    ],
+    // JavaScript string variable   const css = `bg-red-300 ${a}`; or const css = "bg-red-300"
+    [
+      "(?:\\b(?:const|let)\\s+)?[\\w$_]*(?:[Ss]tyles|[Cc]lasses|[Cc]lassnames|[Cc]ls|[Cc]lx|[Cc]lass|[Cc]ss)[\\w\\d]*\\s*(?:=|\\+=)\\s*['`\"]([^'\"]*)['`\"]"
+    ],
+    // fn
+    ["(?:tw|cn)\\(([^)]*)\\)", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"],
+    // dom
+    ["classList.(?:add|remove)\\(([^)]*)\\)", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"],
+    // data class
+    ["data-.*-class=['\"]([^'\"]*)"]
+  ]
 }
 ```
 
@@ -71,6 +88,12 @@ When the **Font Directory** appears, install fonts if you haven't already, and r
 Go to left side menu click on extention then click install from VSIX from [HERE](https://github.com/next-dev-team/npack/releases)
 
 <img src="./assets/install.png" width="400" />
+
+## Tips
+
+- `Tailwind CSS IntelliSense` to make it working like this you need to config like my config above
+
+  <img src="./assets/tw-int.jpg" width="220">
 
 ## Todo
 
