@@ -91,7 +91,7 @@ Go to left side menu click on extention then click install from VSIX from [HERE]
 
 ## Tips
 
-- `Tailwind CSS IntelliSense` to make it working like this you need to config like my config above
+- `Tailwind CSS IntelliSense` to make it working like this you need to config like my config [VS Code settings](https://github.com/next-dev-team/npack/blob/main/.vscode/settings.json#L15)
 
   <img src="./assets/tw-int.jpg" width="220">
 
