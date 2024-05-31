@@ -1,6 +1,6 @@
 {
   "name": "npack",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "silarim",
   "author": "Sila Rim",
   "displayName": "NextDev Pack",
@@ -50,6 +50,7 @@
     "pkief.material-icon-theme",
     "SeyyedKhandon.firacode",
     "Codeium.codeium",
+    "naumovs.color-highlight",
     "EditorConfig.EditorConfig",
     "dbaeumer.vscode-eslint",
     "streetsidesoftware.code-spell-checker",
@@ -57,7 +58,6 @@
     "foxundermoon.shell-format",
     "christian-kohler.path-intellisense",
     "eamodio.gitlens",
-    "antfu.goto-alias",
     "mrluges.vscode-goto-node-modules",
     "steoates.autoimport",
     "litiany4.umijs-plugin-model",
