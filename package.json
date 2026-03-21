@@ -1,10 +1,10 @@
 {
   "name": "npack",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "publisher": "silarim",
   "author": "Sila Rim",
   "displayName": "NextDev Pack",
-  "description": "Theme Essentials Extension Pack(One Dark Pro, Material Icon, FiraCode font) for Visual Studio Code",
+  "description": "Smart developer extension pack manager with visual UI — multi-bundle config, install/uninstall management, export/import/sync, and Activity Bar integration",
   "license": "MIT",
   "galleryBanner": {
     "color": "#47B784",
@@ -18,18 +18,46 @@
   "contributes": {
     "commands": [
       {
-        "command": "npack.activate",
-        "title": "Activate NextDev Pack Config"
-      },
-      {
-        "command": "npack.deactivate",
-        "title": "Deactivate NextDev Pack Config"
+        "command": "npack.configure",
+        "title": "Configure NextDev Pack Bundles",
+        "icon": "$(extensions)"
       },
       {
         "command": "npack.reset",
         "title": "Reset NextDev Pack Config"
+      },
+      {
+        "command": "npack.showInstalled",
+        "title": "Show Installed Extensions"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "npack",
+          "title": "NextDev Pack",
+          "icon": "assets/npack-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "npack": [
+        {
+          "id": "npack.sidebar",
+          "name": "NextDev Pack",
+          "type": "webview"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "npack.configure",
+          "when": "view == npack.sidebar",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -38,7 +66,9 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts",
+    "lint": "biome check src",
+    "lint:fix": "biome check --write src",
+    "format": "biome format --write src",
     "test": "node ./out/test/runTest.js"
   },
   "extensionPack": [
@@ -89,22 +119,16 @@
     "Extension Packs"
   ],
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.95.0"
   },
   "devDependencies": {
-    "@vscode/vsce": "^2.26.1",
-    "@types/follow-redirects": "^1.14.4",
-    "@types/glob": "^8.1.0",
-    "@types/mocha": "^10.0.6",
-    "@types/node": "^20.12.12",
-    "@types/vscode": "^1.89.0",
-    "follow-redirects": "^1.15.6",
-    "fs": "^0.0.1-security",
-    "glob": "^10.3.16",
-    "inly": "^5.0.1",
-    "path": "^0.12.7",
-    "typescript": "^5.4.5",
-    "vscode-test": "^1.5.0"
+    "@biomejs/biome": "^2.4.8",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.95.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.1",
+    "typescript": "^5.9.3"
   },
   "dependencies": {}
 }

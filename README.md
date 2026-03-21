@@ -1,110 +1,140 @@
-# NextDev Pack - Theme, font and useful Extension
+# NextDev Pack ⚡
 
-#### VSCode `Icon`/`Theme`/`Font` pack
+> A smart VS Code extension pack manager with a visual UI for configuring, installing, and syncing developer extension bundles.
 
-<img src="./assets/vscode-example.jpg" width="800">
+## Features
 
-#### Final Step
+### 🎯 Bundle Config Panel
 
-<img src="./assets/firacode-font-directory.jpg" width="400" />
+Open from the **Activity Bar** (sidebar icon) or Command Palette → `Configure NextDev Pack Bundles`.
 
-When the **Font Directory** appears, install fonts if you haven't already, and restart VSCODE once you have.
+- **Multi-bundle selection** — JavaScript, Python, Java, Flutter, Rust, Go
+- **3-column layout** — Common Extensions | Bundle Extensions | Final Preview
+- **Per-extension controls** — Install, Uninstall, View in VS Code, Marketplace link
+- **Install status detection** — Green ✓ for installed, ○ for missing
+- **Bulk actions** — ✓ All, ✗ None, ↺ Reset per section and per column
+- **Install / Uninstall All Checked** — with progress notification
+- **Collapsible details** — version badge, extension ID, description
 
-**Note:** this is because of `OS` limitations, the `fonts must be installed manually`.
+### 📤 Export / 📥 Import / 🌐 Sync
 
-### Available Commands
+- **Export** to `npack-YYYY-MM-DD.json` with full extension map
+- **Import** from local `.json` file with schema validation
+- **Sync from URL** — paste a GitHub or raw URL to load a shared config
+- **Dirty indicator** — Export button pulses yellow when config has unsaved changes
 
-- `Activate NextDev Pack Config`
-- `Deactivate NextDev Pack Config`
-- `Reset NextDev Pack Config`
-
-**Note:** to run commands, press `ctrl+shift+p` to open the command palette, and then type each one and click on it.
-
-<details>
-<summary>
-<i>Here are the configurations this plugin will use</i>
-</summary>
+### 🔧 Config Schema (`npack.json`)
 
 ```json
 {
-  "editor.fontLigatures": true,
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Dark Pro",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.inlineSuggest.enabled": true,
-  "editor.fontFamily": "'fira code'",
-  "editor.fontLigatures": "true",
-  "editor.fontWeight": "normal",
-  "editor.fontSize": 12,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always",
-    "source.fixAll": "always"
+  "version": 1,
+  "selectedPacks": ["javascript"],
+  "uncheckedExtensions": ["Codeium.codeium"],
+  "extensions": {
+    "common": ["esbenp.prettier-vscode", "..."],
+    "javascript": ["dbaeumer.vscode-eslint", "..."]
   },
-  "tailwindCSS.experimental.classRegex": [
-    // obj with prefix cls, Styles const sizesCls ={ sm: 'text-sm'}
-    [
-      "Styles|Cls\\s*(?::\\s*[^=]+)?\\s*=\\s*([^;]*);",
-      "['\"`]([^'\"`]*)['\"`]"
-    ],
-    // JavaScript string variable   const css = `bg-red-300 ${a}`; or const css = "bg-red-300"
-    [
-      "(?:\\b(?:const|let)\\s+)?[\\w$_]*(?:[Ss]tyles|[Cc]lasses|[Cc]lassnames|[Cc]ls|[Cc]lx|[Cc]lass|[Cc]ss)[\\w\\d]*\\s*(?:=|\\+=)\\s*['`\"]([^'\"]*)['`\"]"
-    ],
-    // fn
-    ["(?:tw|cn)\\(([^)]*)\\)", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"],
-    // dom
-    ["classList.(?:add|remove)\\(([^)]*)\\)", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"],
-    // data class
-    ["data-.*-class=['\"]([^'\"]*)"]
-  ]
+  "exportedAt": "2026-03-21T00:00:00.000Z"
 }
 ```
 
-</details>
+### Available Commands
 
-## Extensions Included
+- `Configure NextDev Pack Bundles` — opens the config panel
+- `Reset NextDev Pack Config` — clears saved state
 
-- 1- [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme) - Atom's iconic One Dark theme for Visual Studio Code
-- 2- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) - Material Design Icons for Visual Studio Code
-- 3- [FiraCode Font](https://marketplace.visualstudio.com/items?itemName=SeyyedKhandon.firacode) - Professional Font for Developers
-- 4- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Code formatter
-- 5- [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) - Sublime Text keybindings
-- 6- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) - Tailwind CSS IntelliSense
-- 7- [Material Theme](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.material-theme) - Material Design theme for Visual Studio Code
-- 8- [Material Product Icons](https://marketplace.visualstudio.com/items?itemName=PKief.material-product-icons) - Product Icons for Visual Studio Code
-- 9- [Codeium AI](https://marketplace.visualstudio.com/items?itemName=Codeium.codeium) - AI-powered code autocomplete
-- 10- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) - EditorConfig Support
-- 11- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint into VS Code
-- 12- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) - Spelling checker for your code
-- 13- [I18n Ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally) - Internationalization support
-- 14- [Shell Format](https://marketplace.visualstudio.com/items?itemName=foxundermoon.shell-format) - Format shell scripts
-- 15- [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense) - Autocomplete filenames
-- 16- [Genlen](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) Supercharge Git within VS Code
+> Press `Ctrl+Shift+P` to open the Command Palette.
 
-## One Click Install
+## Extension Bundles
 
-`Currently it's support only local install`
+| Bundle | Includes |
+|--------|----------|
+| **Common** (shared) | Theme, Icons, Font, Formatter, AI, Git, Tools |
+| **JavaScript** | ESLint, Tailwind CSS, npm IntelliSense, Auto Import |
+| **Python** | Python, Pylance, Black, Jupyter |
+| **Java** | Java Extension Pack, Spring Boot, Maven, Gradle |
+| **Flutter** | Flutter, Dart, Bloc, Pubspec Assist |
+| **Rust** | rust-analyzer, crates, TOML, CodeLLDB |
+| **Go** | Go, Go Test Explorer, Protocol Buffers |
 
-Go to left side menu click on extention then click install from VSIX from [HERE](https://github.com/next-dev-team/npack/releases)
+## Install
 
-<img src="./assets/install.png" width="400" />
+### From VSIX (local)
+
+Download from [Releases](https://github.com/next-dev-team/npack/releases), then:
+
+Extensions sidebar → `⋯` menu → **Install from VSIX...**
+
+### From Source
+
+```bash
+pnpm install
+pnpm run compile
+# Then press F5 to launch Extension Development Host
+```
+
+## Development
+
+```bash
+pnpm run watch    # compile on save
+pnpm run lint     # biome check
+pnpm run format   # biome format
+```
 
 ## Tips
 
-- `Tailwind CSS IntelliSense` to make it working like this you need to config like my config [VS Code settings](https://github.com/next-dev-team/npack/blob/main/.vscode/settings.json#L15)
+- **Tailwind CSS IntelliSense** — configure `classRegex` in VS Code settings for full support. See [settings example](.vscode/settings.json).
+- **FiraCode Font** — after installing, you may need to manually install the font files and restart VS Code.
 
-  <img src="./assets/tw-int.jpg" width="220">
+## Roadmap
 
-## Todo
+### ✅ Done
 
-- [ ] Option Pack for backend and front-end
-- [ ] Check list before install
-- [ ] Publish to vscode store
+- [x] Multi-bundle config panel with 3-column layout
+- [x] Install / Uninstall management with status detection
+- [x] Export / Import / Sync from URL
+- [x] Schema validation for config files
+- [x] Activity Bar sidebar icon
+- [x] Dirty state indicator on Export button
 
-# Any Issue or feedback
+### 🚧 Planned
 
-[Feedback or Issue](https://github.com/next-dev-team/npack/issues)
+#### Agent Config Management
+- [ ] AI agent configuration UI (system prompts, model selection, temperature)
+- [ ] Per-project agent profiles with import/export
+- [ ] Agent rules editor (AGENTS.md / .cursorrules / .claude)
 
-## Template from tpack
+#### VS Code Config Management
+- [ ] Settings.json visual editor per bundle
+- [ ] Keybindings sync across machines
+- [ ] Workspace-level config templates
 
-- [Github](https://github.com/SeyyedKhandon/tpack)
+#### MCP Server Management
+- [ ] Discover, install, and configure MCP servers
+- [ ] Visual MCP server status dashboard
+- [ ] Per-project MCP server profiles
+
+#### Skills Management
+- [ ] Browse and install agent skills (SKILL.md)
+- [ ] Skill marketplace with search and categories
+- [ ] Custom skill authoring wizard
+
+#### Context Management for AI
+- [ ] RAG-powered codebase context (embeddings + vector search)
+- [ ] Knowledge item browser and editor
+- [ ] Conversation history search and retrieval
+- [ ] Context window optimization (token budget management)
+
+#### LLM Server Management
+- [ ] Local AI server management (Ollama, llama.cpp, LM Studio)
+- [ ] API key vault (OpenAI, Anthropic, Google, Mistral)
+- [ ] Model switcher with cost/performance comparison
+- [ ] Unified inference proxy for local + cloud models
+
+## Feedback
+
+[Issues & Feature Requests](https://github.com/next-dev-team/npack/issues)
+
+## Credits
+
+Template based on [tpack](https://github.com/SeyyedKhandon/tpack) by SeyyedKhandon.
