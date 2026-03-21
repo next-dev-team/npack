@@ -1,27 +1,40 @@
-# AGENTS.md — NextDev Pack (npack)
+# AGENTS.md — NDE Hub (npack)
 
 ## Project Overview
 
-**npack** is a VS Code extension that manages curated developer extension packs with a visual webview UI. It is NOT a simple extension pack — it has a full config panel for selecting bundles, managing installs, and syncing configs.
+**npack** is an all-in-one developer hub for VS Code (and forks like Antigravity, Cursor, Windsurf). It manages curated extension bundles, provides AI chat integration, and has a tab-based UI for upcoming features (Agent Config, MCP Servers, Skills, RAG Context, LLM Servers).
 
 ## Architecture
 
 ```
 src/
-├── extension.ts      # Entry point — registers commands, TreeDataProvider
-├── configPanel.ts    # Main webview panel (HTML/CSS/JS inline, message handlers)
-├── packs.ts          # Extension pack definitions (bundles, sections, extensions)
+├── extension.ts       # Entry point — commands, sidebar WebviewViewProvider
+├── configPanel.ts     # Main webview panel (HTML/CSS/JS inline, message handlers)
+├── packs.ts           # Extension pack definitions (bundles, sections, extensions)
 ├── defaultSettings.ts # VS Code settings applied on activation
-└── util.ts           # First-time activation, reset helpers
+└── util.ts            # First-time activation, reset helpers
 ```
 
-### Key Pattern: Single-File Webview
+### Sidebar (WebviewView)
 
-`configPanel.ts` contains everything for the config panel:
+`extension.ts` registers a `WebviewViewProvider` for the Activity Bar sidebar:
+- **Horizontal tabs**: General (active) + planned tabs (Agent, MCP, Skills, RAG, LLM) with "soon" badges
+- **General tab**: 2×2 action card grid (Bundle Config, Installed, Reset Config) + Quick Chat section
+- **Quick Chat**: Provider dropdown (Auto/Antigravity/VS Code/Cursor/Windsurf) + Open Chat & Quick Ping buttons
+- **Planned tabs**: Show feature description + "Coming Soon" badge
+
+Communication via `postMessage`:
+- `{ command: "open", id: "bundles"|"installed"|"reset" }` → execute VS Code commands
+- `{ command: "chatOpen"|"chatPing", provider: string, text?: string }` → dynamic chat command discovery
+
+### Config Panel (WebviewPanel)
+
+`configPanel.ts` contains the full config panel:
 - **Extension host handlers** (lines ~70–300) — switch/case on webview messages
 - **HTML renderer** (`getWebviewContent()`) — generates the full HTML document
 - **CSS** — embedded in `<style>` block within the HTML
 - **Client JS** — embedded in `<script>` block within the HTML
+- **Tab bar** — Bundle Config (active) + disabled tabs for planned features
 
 All communication is via `postMessage` between webview ↔ extension host.
 
@@ -32,7 +45,7 @@ All communication is via `postMessage` between webview ↔ extension host.
 - `vscode.extensions.all` — runtime detection of installed extensions
 - Dirty state tracked in webview JS (not persisted)
 
-## Message Protocol (webview → extension host)
+## Message Protocol (configPanel webview → extension host)
 
 | Command | Payload | Description |
 |---------|---------|-------------|
@@ -47,7 +60,7 @@ All communication is via `postMessage` between webview ↔ extension host.
 | `askSyncUrl` | — | Show input box for URL |
 | `viewExtension` | `extensionId` | Open extension in VS Code sidebar |
 
-## Message Protocol (extension host → webview)
+## Message Protocol (extension host → configPanel webview)
 
 | Command | Payload | Description |
 |---------|---------|-------------|
@@ -65,6 +78,13 @@ Edit `src/packs.ts`:
 3. Each extension needs `id` (marketplace ID), `label`, and optional `description`
 4. Set `defaultChecked: false` for extensions that should be opt-in
 5. Add the pack ID to `validPackIds` in `configPanel.ts` (auto-derived from packs)
+
+## Adding a Planned Feature Tab
+
+1. Add tab data in `extension.ts` → `getSidebarHtml()` → `tabs` array (set `active: true` when ready)
+2. Add tab in `configPanel.ts` → tab-bar HTML (remove `disabled` attribute when ready)
+3. Wire up the message handler in `extension.ts` → `resolveWebviewView`
+4. Create the feature's panel content (HTML/CSS/JS)
 
 ## Config Schema (npack.json)
 

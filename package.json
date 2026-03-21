@@ -1,134 +1,56 @@
 {
-  "name": "npack",
+  "name": "nde-hub",
   "version": "1.0.0",
   "publisher": "silarim",
   "author": "Sila Rim",
-  "displayName": "NextDev Pack",
-  "description": "Smart developer extension pack manager with visual UI — multi-bundle config, install/uninstall management, export/import/sync, and Activity Bar integration",
+  "displayName": "NDE Hub",
+  "description": "All-in-one developer hub — extension bundle manager, AI chat integration, and upcoming agent/MCP/skills/RAG/LLM tools with visual UI",
   "license": "MIT",
-  "galleryBanner": {
-    "color": "#47B784",
-    "theme": "dark"
-  },
   "icon": "assets/npack.jpg",
-  "activationEvents": [
-    "onStartupFinished"
-  ],
+  "galleryBanner": { "color": "#47B784", "theme": "dark" },
+  "engines": { "vscode": "^1.95.0" },
+  "categories": ["Extension Packs", "Other"],
+  "keywords": ["extension pack", "developer hub", "bundle manager", "AI tools", "MCP"],
+  "repository": { "url": "https://github.com/next-dev-team/npack" },
+  "homepage": "https://github.com/next-dev-team/npack",
+  "bugs": { "url": "https://github.com/next-dev-team/npack/issues" },
+  "activationEvents": ["onStartupFinished"],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      {
-        "command": "npack.configure",
-        "title": "Configure NextDev Pack Bundles",
-        "icon": "$(extensions)"
-      },
-      {
-        "command": "npack.reset",
-        "title": "Reset NextDev Pack Config"
-      },
-      {
-        "command": "npack.showInstalled",
-        "title": "Show Installed Extensions"
-      }
+      { "command": "npack.configure", "title": "Configure NDE Hub Bundles", "icon": "$(extensions)" },
+      { "command": "npack.reset", "title": "Reset NDE Hub Config" },
+      { "command": "npack.showInstalled", "title": "Show Installed Extensions" }
     ],
     "viewsContainers": {
       "activitybar": [
-        {
-          "id": "npack",
-          "title": "NextDev Pack",
-          "icon": "assets/npack-icon.svg"
-        }
+        { "id": "npack", "title": "NDE Hub", "icon": "assets/npack-icon.svg" }
       ]
     },
     "views": {
       "npack": [
-        {
-          "id": "npack.sidebar",
-          "name": "NextDev Pack",
-          "type": "webview"
-        }
+        { "id": "npack.sidebar", "name": "NDE Hub", "type": "webview" }
       ]
     },
     "menus": {
       "view/title": [
-        {
-          "command": "npack.configure",
-          "when": "view == npack.sidebar",
-          "group": "navigation"
-        }
+        { "command": "npack.configure", "when": "view == npack.sidebar", "group": "navigation" }
       ]
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "vsce": "vsce package",
-    "vsce:publish": "vsce publish",
+    "vscode:prepublish": "pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
     "lint": "biome check src",
     "lint:fix": "biome check --write src",
-    "format": "biome format --write src",
-    "test": "node ./out/test/runTest.js"
-  },
-  "extensionPack": [
-    "esbenp.prettier-vscode",
-    "ms-vscode.sublime-keybindings",
-    "bradlc.vscode-tailwindcss",
-    "zhuangtongfa.material-theme",
-    "PKief.material-product-icons",
-    "pkief.material-icon-theme",
-    "SeyyedKhandon.firacode",
-    "Codeium.codeium",
-    "naumovs.color-highlight",
-    "EditorConfig.EditorConfig",
-    "dbaeumer.vscode-eslint",
-    "streetsidesoftware.code-spell-checker",
-    "Lokalise.i18n-ally",
-    "foxundermoon.shell-format",
-    "christian-kohler.path-intellisense",
-    "eamodio.gitlens",
-    "mrluges.vscode-goto-node-modules",
-    "steoates.autoimport",
-    "litiany4.umijs-plugin-model",
-    "zachhardesty.convert-object-to-jsx-vscode",
-    "GregorBiswanger.json2ts",
-    "amih90.to",
-    "DavidAnson.vscode-markdownlint",
-    "aaron-bond.better-comments",
-    "mikestead.dotenv",
-    "christian-kohler.npm-intellisense"
-  ],
-  "repository": {
-    "url": "https://github.com/next-dev-team/npack.git"
-  },
-  "homepage": "https://github.com/next-dev-team/npack.git",
-  "bugs": {
-    "url": "https://github.com/next-dev-team/npack.git/issues"
-  },
-  "keywords": [
-    "Theme Extension Pack",
-    "One Dark Pro",
-    "Material Icon Pack",
-    "Fira Code font",
-    "Professional font",
-    "web",
-    "developer experience"
-  ],
-  "categories": [
-    "Extension Packs"
-  ],
-  "engines": {
-    "vscode": "^1.95.0"
+    "format": "biome format --write src"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.8",
-    "@types/mocha": "^10.0.10",
     "@types/node": "^22.0.0",
     "@types/vscode": "^1.95.0",
-    "@vscode/test-electron": "^2.5.2",
     "@vscode/vsce": "^3.7.1",
     "typescript": "^5.9.3"
-  },
-  "dependencies": {}
+  }
 }

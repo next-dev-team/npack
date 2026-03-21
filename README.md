@@ -1,12 +1,21 @@
-# NextDev Pack ⚡
+# NDE Hub ⚡
 
-> A smart VS Code extension pack manager with a visual UI for configuring, installing, and syncing developer extension bundles.
+> All-in-one developer hub for VS Code — manage extension bundles, AI chat integration, and upcoming agent/MCP/skills/RAG/LLM tools in a single panel.
 
 ## Features
 
-### 🎯 Bundle Config Panel
+### ⚡ General Dashboard (Sidebar)
 
-Open from the **Activity Bar** (sidebar icon) or Command Palette → `Configure NextDev Pack Bundles`.
+Open from the **Activity Bar** (sidebar icon). Horizontal tabs with quick actions:
+
+- **📦 Bundle Config** — Open the full config panel
+- **📋 Installed** — View all installed extensions in VS Code
+- **🔄 Reset Config** — Reset to defaults
+- **💬 Quick Chat** — AI provider selector (Antigravity, VS Code/Copilot, Cursor, Windsurf) with Open Chat & Quick Ping
+
+### 📦 Bundle Config Panel
+
+Open from sidebar or Command Palette → `Configure NDE Hub Bundles`.
 
 - **Multi-bundle selection** — JavaScript, Python, Java, Flutter, Rust, Go
 - **3-column layout** — Common Extensions | Bundle Extensions | Final Preview
@@ -15,6 +24,7 @@ Open from the **Activity Bar** (sidebar icon) or Command Palette → `Configure 
 - **Bulk actions** — ✓ All, ✗ None, ↺ Reset per section and per column
 - **Install / Uninstall All Checked** — with progress notification
 - **Collapsible details** — version badge, extension ID, description
+- **Tab bar** — Bundle Config (active) + coming soon tabs (Agent, MCP, Skills, RAG, LLM)
 
 ### 📤 Export / 📥 Import / 🌐 Sync
 
@@ -40,15 +50,16 @@ Open from the **Activity Bar** (sidebar icon) or Command Palette → `Configure 
 
 ### Available Commands
 
-- `Configure NextDev Pack Bundles` — opens the config panel
-- `Reset NextDev Pack Config` — clears saved state
+- `Configure NDE Hub Bundles` — opens the config panel
+- `Reset NDE Hub Config` — clears saved state
+- `Show Installed Extensions` — opens VS Code extensions filtered to installed
 
 > Press `Ctrl+Shift+P` to open the Command Palette.
 
 ## Extension Bundles
 
-| Bundle | Includes |
-|--------|----------|
+| Bundle       | Includes                                          |
+| ------------ | ------------------------------------------------- |
 | **Common** (shared) | Theme, Icons, Font, Formatter, AI, Git, Tools |
 | **JavaScript** | ESLint, Tailwind CSS, npm IntelliSense, Auto Import |
 | **Python** | Python, Pylance, Black, Jupyter |
@@ -81,55 +92,59 @@ pnpm run lint     # biome check
 pnpm run format   # biome format
 ```
 
-## Tips
-
-- **Tailwind CSS IntelliSense** — configure `classRegex` in VS Code settings for full support. See [settings example](.vscode/settings.json).
-- **FiraCode Font** — after installing, you may need to manually install the font files and restart VS Code.
-
 ## Roadmap
 
-### ✅ Done
+### ✅ v1.0 — Done
 
 - [x] Multi-bundle config panel with 3-column layout
 - [x] Install / Uninstall management with status detection
 - [x] Export / Import / Sync from URL
 - [x] Schema validation for config files
-- [x] Activity Bar sidebar icon
+- [x] Activity Bar sidebar with webview tabs
 - [x] Dirty state indicator on Export button
+- [x] Quick Chat integration with multi-provider support
+- [x] Config panel tab bar with coming soon feature previews
 
-### 🚧 Planned
+### 🚧 Coming Soon — Integrated Tabs
 
-#### Agent Config Management
+These features appear as disabled tabs in both the sidebar and config panel, ready for future development:
+
+#### 🤖 Agent Config
+
 - [ ] AI agent configuration UI (system prompts, model selection, temperature)
 - [ ] Per-project agent profiles with import/export
 - [ ] Agent rules editor (AGENTS.md / .cursorrules / .claude)
 
-#### VS Code Config Management
-- [ ] Settings.json visual editor per bundle
-- [ ] Keybindings sync across machines
-- [ ] Workspace-level config templates
+#### 🔌 MCP Server Management
 
-#### MCP Server Management
 - [ ] Discover, install, and configure MCP servers
 - [ ] Visual MCP server status dashboard
 - [ ] Per-project MCP server profiles
 
-#### Skills Management
+#### 🧩 Skills Management
+
 - [ ] Browse and install agent skills (SKILL.md)
 - [ ] Skill marketplace with search and categories
 - [ ] Custom skill authoring wizard
 
-#### Context Management for AI
+#### 📚 Context (RAG)
+
 - [ ] RAG-powered codebase context (embeddings + vector search)
 - [ ] Knowledge item browser and editor
 - [ ] Conversation history search and retrieval
 - [ ] Context window optimization (token budget management)
 
-#### LLM Server Management
+#### 🧠 LLM Server Management
+
 - [ ] Local AI server management (Ollama, llama.cpp, LM Studio)
 - [ ] API key vault (OpenAI, Anthropic, Google, Mistral)
 - [ ] Model switcher with cost/performance comparison
 - [ ] Unified inference proxy for local + cloud models
+
+## Tips
+
+- **Tailwind CSS IntelliSense** — configure `classRegex` in VS Code settings for full support. See [settings example](.vscode/settings.json).
+- **FiraCode Font** — after installing, you may need to manually install the font files and restart VS Code.
 
 ## Feedback
 

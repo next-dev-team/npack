@@ -53,7 +53,7 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
 
   currentPanel = vscode.window.createWebviewPanel(
     "npackConfig",
-    "NextDev Pack — Configure",
+    "NDE Hub — Configure",
     vscode.ViewColumn.One,
     { enableScripts: true, retainContextWhenHidden: true }
   );
@@ -81,7 +81,7 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
             message.uncheckedExtensions
           );
           vscode.window.showInformationMessage(
-            `NextDev Pack: ${message.packIds.length} bundle(s) saved!`
+            `NDE Hub: ${message.packIds.length} bundle(s) saved!`
           );
           break;
         case "installExtension":
@@ -127,7 +127,7 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
             vscode.window.withProgress(
               {
                 location: vscode.ProgressLocation.Notification,
-                title: "NextDev Pack",
+                title: "NDE Hub",
                 cancellable: false,
               },
               async (progress) => {
@@ -142,7 +142,7 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
                   );
                 }
                 vscode.window.showInformationMessage(
-                  `NextDev Pack: ${ids.length} extensions installed!`
+                  `NDE Hub: ${ids.length} extensions installed!`
                 );
                 // Notify webview to re-enable buttons
                 if (currentPanel) {
@@ -158,7 +158,7 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
             vscode.window.withProgress(
               {
                 location: vscode.ProgressLocation.Notification,
-                title: "NextDev Pack",
+                title: "NDE Hub",
                 cancellable: false,
               },
               async (progress) => {
@@ -173,7 +173,7 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
                   );
                 }
                 vscode.window.showInformationMessage(
-                  `NextDev Pack: ${uids.length} extensions uninstalled!`
+                  `NDE Hub: ${uids.length} extensions uninstalled!`
                 );
                 if (currentPanel) {
                   currentPanel.webview.postMessage({ command: "uninstallComplete" });
@@ -225,7 +225,7 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
               Buffer.from(JSON.stringify(config, null, 2))
             );
             vscode.window.showInformationMessage(
-              `NextDev Pack: Config exported to ${uri.fsPath}`
+              `NDE Hub: Config exported to ${uri.fsPath}`
             );
           }
           break;
@@ -253,11 +253,11 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
                 );
               }
               vscode.window.showInformationMessage(
-                `NextDev Pack: Imported ${config.selectedPacks.length} bundle(s) from ${files[0].fsPath}`
+                `NDE Hub: Imported ${config.selectedPacks.length} bundle(s) from ${files[0].fsPath}`
               );
             } catch (e: any) {
               vscode.window.showErrorMessage(
-                `NextDev Pack: Failed to import — ${e.message}`
+                `NDE Hub: Failed to import — ${e.message}`
               );
             }
           }
@@ -288,11 +288,11 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
               );
             }
             vscode.window.showInformationMessage(
-              `NextDev Pack: Synced ${config.selectedPacks.length} bundle(s) from URL`
+              `NDE Hub: Synced ${config.selectedPacks.length} bundle(s) from URL`
             );
           } catch (e: any) {
             vscode.window.showErrorMessage(
-              `NextDev Pack: Sync failed — ${e.message}`
+              `NDE Hub: Sync failed — ${e.message}`
             );
           }
           break;
@@ -326,11 +326,11 @@ export function showConfigPanel(context: vscode.ExtensionContext) {
                 );
               }
               vscode.window.showInformationMessage(
-                `NextDev Pack: Synced ${config.selectedPacks.length} bundle(s) from URL`
+                `NDE Hub: Synced ${config.selectedPacks.length} bundle(s) from URL`
               );
             } catch (e: any) {
               vscode.window.showErrorMessage(
-                `NextDev Pack: Sync failed — ${e.message}`
+                `NDE Hub: Sync failed — ${e.message}`
               );
             }
           }
@@ -500,7 +500,7 @@ function getWebviewContent(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NextDev Pack Config</title>
+  <title>NDE Hub Config</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -817,7 +817,7 @@ function getWebviewContent(
 <body>
   <div class="header">
     <div class="header-top">
-      <h1>⚡ NextDev Pack — Bundle Config</h1>
+      <h1>⚡ NDE Hub — Bundle Config</h1>
       <div class="header-actions">
         <button class="btn-secondary" id="exportBtn">📤 Export</button>
         <button class="btn-secondary" id="importBtn">📥 Import</button>

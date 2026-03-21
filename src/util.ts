@@ -55,7 +55,7 @@ export async function firstTimeActivation(context: vscode.ExtensionContext) {
 
   // Show onboarding prompt
   const choice = await vscode.window.showInformationMessage(
-    "⚡ Welcome to NextDev Pack! Choose your developer bundle (JavaScript, Java, Python, Flutter, Rust, Go) to get the best extensions for your stack.",
+    "⚡ Welcome to NDE Hub! Choose your developer bundle (JavaScript, Java, Python, Flutter, Rust, Go) to get the best extensions for your stack.",
     "Configure Bundles",
     "Later"
   );
