@@ -11,9 +11,6 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: npack
 
     steps:
       - uses: actions/checkout@v4
@@ -53,7 +50,7 @@ jobs:
           fi
           echo "## What's Changed" > changelog.md
           echo "" >> changelog.md
-          git log ${PREV_TAG}..HEAD --pretty=format:"- %s (%h)" --no-merges -- npack/ >> changelog.md
+          git log ${PREV_TAG}..HEAD --pretty=format:"- %s (%h)" --no-merges >> changelog.md
           echo "" >> changelog.md
           echo "" >> changelog.md
           echo "**Full Changelog**: https://github.com/${{ github.repository }}/compare/${PREV_TAG}...${GITHUB_REF#refs/tags/}" >> changelog.md
@@ -63,8 +60,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           name: NextDev Pack v${{ steps.version.outputs.VERSION }}
-          body_path: npack/changelog.md
-          files: npack/*.vsix
+          body_path: changelog.md
+          files: "*.vsix"
           draft: false
           prerelease: false
         env:
